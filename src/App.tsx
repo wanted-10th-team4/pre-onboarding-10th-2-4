@@ -6,7 +6,7 @@ import GlobalStyle from './GlobalStyle';
 function App() {
   return (
     <BrowserRouter>
-      <GlobalStyle/>
+      <GlobalStyle />
       <Routes>
         <Route path="/" element={<LandingPage />} />
         {/* <Route path="*" element={<NotFound />} /> */}
