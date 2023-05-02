@@ -46,6 +46,8 @@
         "allowShortCircuit": true,
         "allowTaggedTemplates": true
       }
-    ]
+    ],
+    "import/no-extraneous-dependencies": 0,
+    "react/jsx-props-no-spreading": "off"
   }
 }

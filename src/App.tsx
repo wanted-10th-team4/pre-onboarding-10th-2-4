@@ -1,10 +1,17 @@
 import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import LandingPage from '@pages/LandingPage';
+import GlobalStyle from './GlobalStyle';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">hello world</header>
-    </div>
+    <BrowserRouter>
+      <GlobalStyle/>
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        {/* <Route path="*" element={<NotFound />} /> */}
+      </Routes>
+    </BrowserRouter>
   );
 }
 
