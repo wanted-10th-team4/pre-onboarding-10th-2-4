@@ -9,3 +9,9 @@ export interface SearchInputInputProps {
   isInputTextFocus: boolean;
   setIsInputTextFocus: React.Dispatch<React.SetStateAction<boolean>>;
 }
+
+export interface SetCacheProps {
+  key: string;
+  value: object;
+  expireTime: number;
+}

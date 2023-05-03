@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Recommendation from '@components/Recommendation';
 import useDebounce from '@hooks/useDebounce';
 import getSearchResults from '@api/search';
-import DEBOUNCE_LIMIT_TIME from '@utils/constant';
+import { DEBOUNCE_LIMIT_TIME } from '@utils/constant';
 import Button from './Button';
 import Input from './Input';
 import { SearchInputDiv, SearchInputDivWrapper } from './styles';
@@ -12,7 +12,6 @@ function SearchInput() {
   const [isInputTextFocus, setIsInputTextFocus] = useState<boolean>(false);
   const getDebounceResult = useDebounce(async text => {
     try {
-      console.info(text);
       const data = await getSearchResults({ name: text });
       // TODO: Recommendation으로 뿌려는 로직 작성
       console.log(data);
