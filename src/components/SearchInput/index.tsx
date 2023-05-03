@@ -7,6 +7,7 @@ import { SearchInputDiv, SearchInputDivWrapper } from './styles';
 function SearchInput() {
   const [inputText, setInputText] = useState<string>('');
   const [isInputTextFocus, setIsInputTextFocus] = useState<boolean>(false);
+
   return (
     <SearchInputDivWrapper>
       <SearchInputDiv>
