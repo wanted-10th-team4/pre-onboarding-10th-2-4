@@ -10,6 +10,7 @@ const GlobalStyle = createGlobalStyle`
     line-height:  1.5;
     border:       0;
     margin:       0;
+    background-color: #cae9ff;
   }
 
   :root {
