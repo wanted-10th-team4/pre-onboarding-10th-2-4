@@ -52,6 +52,7 @@ function Input({ inputText, setInputText, isInputTextFocus, setIsInputTextFocus 
             onChange={onChangeInputText}
             onBlur={onBlurInputText}
             onFocus={onFocusInputText}
+            autoComplete="off"
           />
           {isInputTextFocus && (
             <InputTextCancelIconSpan onMouseDown={onClickCancel}>
