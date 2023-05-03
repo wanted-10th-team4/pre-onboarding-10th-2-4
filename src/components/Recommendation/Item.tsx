@@ -3,7 +3,7 @@ import SearchIcon from '@components/common/SearchIcon';
 import { RecommendationItemProps } from '@type/props';
 import { RecommendationItem, SearchIconDiv, MarginDiv, SearchHighlightDiv } from './styles';
 
-function Item({ recommendationItem, inputText }: RecommendationItemProps) {
+function Item({ recommendationItem, inputText, isSelected, index, setSelectedIndex }: RecommendationItemProps) {
   const [matchLength, setMatchLength] = useState<number>(0);
 
   useEffect(() => {
@@ -11,8 +11,12 @@ function Item({ recommendationItem, inputText }: RecommendationItemProps) {
     setMatchLength(recommendationItem.name.length - unDuplicateLength);
   }, [inputText]);
 
+  const onMouseOverItem = () => {
+    setSelectedIndex(index);
+  };
+
   return (
-    <RecommendationItem>
+    <RecommendationItem isSelected={isSelected} onMouseOver={onMouseOverItem}>
       <SearchIconDiv>
         <SearchIcon />
       </SearchIconDiv>

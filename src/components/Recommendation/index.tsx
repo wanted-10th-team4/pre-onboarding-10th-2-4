@@ -5,14 +5,21 @@ import Item from './Item';
 import Title from './Title';
 import NoItem from './NoItem';
 
-function Recommendation({ recommendationList, inputText }: RecommendationProps) {
+function Recommendation({ recommendationList, inputText, selectedIndex, setSelectedIndex }: RecommendationProps) {
   return (
     <RecommendationDivWrapper>
       <RecommendationDiv>
         <Title />
         {recommendationList.length > 0 ? (
-          recommendationList.map(recommendationItem => (
-            <Item key={recommendationItem.id} recommendationItem={recommendationItem} inputText={inputText} />
+          recommendationList.map((recommendationItem, index) => (
+            <Item
+              key={recommendationItem.id}
+              isSelected={index === selectedIndex}
+              index={index}
+              recommendationItem={recommendationItem}
+              inputText={inputText}
+              setSelectedIndex={setSelectedIndex}
+            />
           ))
         ) : (
           <NoItem />
