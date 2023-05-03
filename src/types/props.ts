@@ -1,3 +1,5 @@
+import { GetSearchResultsResponse, SearchResult } from './data';
+
 export interface LabelForInputProps {
   labelFor: string;
   labelText: string;
@@ -14,4 +16,14 @@ export interface SetCacheProps {
   key: string;
   value: object;
   expireTime: number;
+}
+
+export interface RecommendationProps {
+  recommendationList: GetSearchResultsResponse;
+  inputText: string;
+}
+
+export interface RecommendationItemProps {
+  recommendationItem: SearchResult;
+  inputText: string;
 }
