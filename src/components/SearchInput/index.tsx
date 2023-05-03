@@ -12,6 +12,7 @@ function SearchInput() {
   const [inputText, setInputText] = useState<string>('');
   const [isInputTextFocus, setIsInputTextFocus] = useState<boolean>(false);
   const [recommendationList, setRecommendationList] = useState<GetSearchResultsResponse>([]);
+  const [selectedIndex, setSelectedIndex] = useState<number>(-1);
   const getDebounceResult = useDebounce(async text => {
     try {
       const data = await getSearchResults({ name: text });
@@ -22,6 +23,7 @@ function SearchInput() {
   }, DEBOUNCE_LIMIT_TIME);
 
   useEffect(() => {
+    setSelectedIndex(-1);
     if (inputText.length === 0) setRecommendationList([]);
     if (inputText.length > 0) getDebounceResult(inputText);
   }, [inputText]);
@@ -34,10 +36,17 @@ function SearchInput() {
           setInputText={setInputText}
           isInputTextFocus={isInputTextFocus}
           setIsInputTextFocus={setIsInputTextFocus}
+          setSelectedIndex={setSelectedIndex}
+          maxIndex={recommendationList.length - 1}
         />
         <Button />
         {inputText.length > 0 && isInputTextFocus && (
-          <Recommendation recommendationList={recommendationList} inputText={inputText} />
+          <Recommendation
+            recommendationList={recommendationList}
+            inputText={inputText}
+            selectedIndex={selectedIndex}
+            setSelectedIndex={setSelectedIndex}
+          />
         )}
       </SearchInputDiv>
     </SearchInputDivWrapper>

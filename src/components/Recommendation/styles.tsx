@@ -20,7 +20,7 @@ export const RecommendationDiv = styled.div`
 `;
 
 export const RecommendationTitle = styled.div`
-  color: rgb(106, 115, 123);
+  color: #6a737b;
   font-size: 13px;
   font-weight: var(--font-weight-regular);
   letter-spacing: -0.018em;
@@ -29,7 +29,7 @@ export const RecommendationTitle = styled.div`
   padding-right: 24px;
 `;
 
-export const RecommendationItem = styled.div`
+export const RecommendationItem = styled.div<{ isSelected: boolean }>`
   word-break: break-all;
   flex-direction: row;
   align-items: center;
@@ -40,10 +40,11 @@ export const RecommendationItem = styled.div`
   display: flex;
   padding: 8px 24px;
   cursor: pointer;
+  background-color: ${props => (props.isSelected ? '#EEF7FF' : '#ffffff')};
 `;
 
 export const SearchIconDiv = styled.div`
-  color: rgb(167, 175, 183);
+  color: #a7afb7;
   align-self: flex-start;
   min-width: 16px;
   height: 16px;
