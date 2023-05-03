@@ -1,7 +1,18 @@
 import React from 'react';
+import { RecommendationDivWrapper, RecommendationDiv } from './styles';
+import Item from './Item';
+import Title from './Title';
 
 function Recommendation() {
-  return <div>Recommendation</div>;
+  return (
+    <RecommendationDivWrapper>
+      <RecommendationDiv>
+        <Title />
+        <Item />
+        <Item />
+      </RecommendationDiv>
+    </RecommendationDivWrapper>
+  );
 }
 
 export default Recommendation;

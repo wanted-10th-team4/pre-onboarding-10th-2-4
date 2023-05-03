@@ -1,5 +1,4 @@
 import React from 'react';
-import Recommendation from '@components/Recommendation';
 import SearchInput from '@components/SearchInput';
 import { LandingDivWrapper } from './styles';
 import Text from './Text';
@@ -9,7 +8,6 @@ function index() {
     <LandingDivWrapper>
       <Text />
       <SearchInput />
-      <Recommendation />
     </LandingDivWrapper>
   );
 }

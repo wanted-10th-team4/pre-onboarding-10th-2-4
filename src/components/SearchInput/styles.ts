@@ -20,4 +20,5 @@ export const SearchInputDiv = styled.div`
   line-height: 1.6;
   padding-right: 8px;
   width: 100%;
+  position: relative;
 `;

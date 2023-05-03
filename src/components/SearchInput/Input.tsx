@@ -1,7 +1,7 @@
 import React from 'react';
 import LabelForInput from '@components/common/LabelForInput';
+import SearchIcon from '@components/common/SearchIcon';
 import styled from 'styled-components';
-import InputTextIcon from './InputTextIcon';
 import InputTextCancelIcon from './InputTextCancelIcon';
 
 const InputDivWrapper = styled.div`
@@ -82,7 +82,7 @@ function Input() {
         <InputWrapper>
           <InputTextDivWrapper>
             <InputTextIconDiv>
-              <InputTextIcon />
+              <SearchIcon />
             </InputTextIconDiv>
             <div>질환명을 입력해 주세요.</div>
           </InputTextDivWrapper>
