@@ -18,6 +18,5 @@ export const setCacheByExpireTime = async ({ key, value, expireTime = 0 }: SetCa
     expiry: new Date().getTime() + expireTime,
   };
   const response = new Response(JSON.stringify(item));
-  console.log(response);
   await cache.put(key, response);
 };
