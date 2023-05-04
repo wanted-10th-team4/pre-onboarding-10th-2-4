@@ -6,7 +6,7 @@ import axios from 'axios';
 const PROXY = window.location.hostname === 'localhost' ? '' : '/proxy';
 
 const getSearchResults = async (param: SearchParam): Promise<GetSearchResultsResponse> => {
-  const cacheItem = getCacheByKey(param.name);
+  const cacheItem = await getCacheByKey(param.name);
   if (cacheItem) return cacheItem;
 
   console.info('calling api');
