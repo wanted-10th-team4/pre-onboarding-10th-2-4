@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import LabelForInput from '@components/common/LabelForInput';
 import SearchIcon from '@components/common/SearchIcon';
 import { SearchInputInputProps } from '@type/props';
@@ -24,6 +24,8 @@ function Input({
   setSelectedIndex,
   maxIndex,
 }: SearchInputInputProps) {
+  const inputRef = useRef<HTMLInputElement>(null);
+
   const getUpIndex = (prevIndex: number) => {
     if (prevIndex <= 0) return maxIndex;
     return prevIndex - 1;
@@ -60,7 +62,9 @@ function Input({
     setIsInputTextFocus(true);
   };
 
-  const onClickCancel = () => {
+  const onClickCancel = (e: React.MouseEvent<HTMLSpanElement>) => {
+    e.preventDefault();
+    inputRef.current?.focus();
     setInputText('');
   };
 
@@ -79,6 +83,7 @@ function Input({
           )}
           <SearchInput
             id={INPUT_ID}
+            ref={inputRef}
             type="search"
             spellCheck="false"
             value={inputText}
