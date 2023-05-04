@@ -1,19 +1,23 @@
 import { SetCacheProps } from '@type/props';
 
-export const getCacheByKey = (key: string) => {
-  const item = localStorage.getItem(key);
-  if (item) {
-    const parseItem = JSON.parse(item);
-    if (parseItem.expiry > new Date().getTime()) return parseItem.value;
-    localStorage.removeItem(key);
+export const getCacheByKey = async (key: string) => {
+  const cache = await caches.open('cache');
+  const cachedResponse = await cache.match(key);
+  if (cachedResponse) {
+    const cachedData = await cachedResponse.json();
+    if (cachedData.expiry > new Date().getTime()) return cachedData.value;
+    cache.delete(key);
   }
   return null;
 };
 
-export const setCacheByExpireTime = ({ key, value, expireTime = 0 }: SetCacheProps) => {
+export const setCacheByExpireTime = async ({ key, value, expireTime = 0 }: SetCacheProps) => {
+  const cache = await caches.open('cache');
   const item = {
     value,
     expiry: new Date().getTime() + expireTime,
   };
-  localStorage.setItem(key, JSON.stringify(item));
+  const response = new Response(JSON.stringify(item));
+  console.log(response);
+  await cache.put(key, response);
 };
