@@ -42,7 +42,9 @@ function Input({
   const onKeyDownInputText = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if ([ARROW_UP, ARROW_DOWN].includes(e.key)) {
       e.preventDefault();
-      onKeyDownItem(e.key);
+      if (e.nativeEvent.isComposing === false) {
+        onKeyDownItem(e.key);
+      }
     }
   };
 
